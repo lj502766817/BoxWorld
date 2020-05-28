@@ -14,7 +14,7 @@
    </dependency>
 ```
 
-  直接而引入mybatis-spring和mybatis的包的话,`@Mapper`会失效接口无法扫描到spring的容器中.是mybatis-spring-boot-starter中有mybatis-spring和mybatis没有的jar导致的?
+  直接而引入`mybatis-spring`和`mybatis`的包的话,`@Mapper`会失效接口无法扫描到spring的容器中.是`mybatis-spring-boot-starter`中有`mybatis-spring`和`mybatis`没有的jar导致的?
 
 
 
