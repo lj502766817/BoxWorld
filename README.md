@@ -2,7 +2,7 @@
 
 #### 碰到的问题
 
-##### mybatis:
+##### mybatis的@Mapper注解问题:
 
 >  springboot项目,不使用
 >     ```xml
