@@ -32,9 +32,17 @@ public class User implements Serializable {
     */
     private Double phone;
     /**
+     * 邮箱
+     */
+    private String email;
+    /**
     * 登陆ip
     */
     private String loginIp;
+    /**
+     * 账号状态 0:冻结,1,正常,2未激活
+     */
+    private Integer status;
     
     private Date createTime;
     
@@ -105,4 +113,19 @@ public class User implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }
