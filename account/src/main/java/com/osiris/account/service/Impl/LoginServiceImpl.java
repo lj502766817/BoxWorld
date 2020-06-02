@@ -37,6 +37,7 @@ public class LoginServiceImpl implements LoginService {
      * @param user 用户
      */
     private void securityValidate(User user) {
+        //todo 频率检测,密码重试次数
         if (user.getAccount()!=null){
             System.out.println("账户的安全验证");
         }
