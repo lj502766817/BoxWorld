@@ -1,5 +1,7 @@
 package com.osiris.account.service;
 
+import com.osiris.account.entity.User;
+
 /**
  * 登陆服务
  *
@@ -10,6 +12,11 @@ public interface LoginService {
     /**
      * 账号登陆
      */
-    void loginByAccount(String account, String password);
+    Boolean loginByAccount(User user) throws Exception;
+
+    /**
+     * 注册
+     */
+    Boolean register(User user) throws Exception;
 
 }

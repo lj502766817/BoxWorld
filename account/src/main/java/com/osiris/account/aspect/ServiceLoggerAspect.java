@@ -22,7 +22,7 @@ public class ServiceLoggerAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceLoggerAspect.class);
 
-    private static final String POINT_CUT_1 = "execution(public * com.osiris.account.service.Impl..*.*（..）)";
+    private static final String POINT_CUT_1 = "execution(public * com.osiris.account.service.Impl..*.*(..))";
 
     @Pointcut(POINT_CUT_1)
     public void pointCut1(){}
