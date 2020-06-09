@@ -29,6 +29,9 @@ public class EncryptionUtils {
      * @return 加密后的结果
      */
     public static String getMd5Str(String str){
+        if (str==null){
+            return null;
+        }
         byte[] digest = null;
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
@@ -48,6 +51,9 @@ public class EncryptionUtils {
      * @return
      */
     public static String getMd5BySpring(String str){
+        if (str==null){
+            return null;
+        }
         return DigestUtils.md5DigestAsHex((PREFIX+str+SUFFIX).getBytes());
     }
 

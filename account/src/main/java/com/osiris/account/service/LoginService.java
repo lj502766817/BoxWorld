@@ -19,4 +19,9 @@ public interface LoginService {
      */
     Boolean register(User user) throws Exception;
 
+    /**
+     * 更新用户信息
+     */
+    Boolean updateUser(User user);
+
 }
