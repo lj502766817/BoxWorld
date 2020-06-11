@@ -1,10 +1,10 @@
 package com.osiris.account.util;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Value;
 import redis.clients.jedis.Jedis;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -59,10 +59,28 @@ public class RedisUtils {
         jedis.expire(key,seconds);
     }
 
-    public static void setStrNx(String key, String str, Integer seconds) throws Exception {
+    /**
+     * 字符串唯一设值,key存在时失败
+     * @param key 键
+     * @param str 字符串
+     * @param seconds 过期时间
+     * @return 设值成功或者失败
+     */
+    public static Boolean setStrNx(String key, String str, Integer seconds) {
         long result = jedis.setnx(key,str);
-        if (result!=1){
-            throw new Exception("set value fail");
+        jedis.expire(key,seconds);
+        return result==1;
+    }
+
+    /**
+     * 设置字符串集合
+     * @param key 键
+     * @param strs 字符串集合
+     * @param seconds 过期时间
+     */
+    public static void setStrList(String key, List<String> strs, Integer seconds){
+        for (String str : strs) {
+            jedis.lpush(key,str);
         }
         jedis.expire(key,seconds);
     }
