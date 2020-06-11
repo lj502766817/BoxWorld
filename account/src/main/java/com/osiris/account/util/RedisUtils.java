@@ -40,11 +40,30 @@ public class RedisUtils {
     /**
      * 向redis里进行字符串设值
      * @param key 键
-     * @param value 值
+     * @param str 字符串
      * @param seconds 过期时间(秒)
      */
-    public static void setStr(String key, String value, Integer seconds){
-        jedis.set(key,value);
+    public static void setStr(String key, String str, Integer seconds){
+        jedis.set(key,str);
+        jedis.expire(key,seconds);
+    }
+
+    /**
+     * 字符串附加
+     * @param key 键
+     * @param appendStr 附加字符串
+     * @param seconds 过期时间
+     */
+    public static void appendStr(String key, String appendStr, Integer seconds){
+        jedis.append(key,appendStr);
+        jedis.expire(key,seconds);
+    }
+
+    public static void setStrNx(String key, String str, Integer seconds) throws Exception {
+        long result = jedis.setnx(key,str);
+        if (result!=1){
+            throw new Exception("set value fail");
+        }
         jedis.expire(key,seconds);
     }
 
